@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 登录指令：0x0101-0x01FF-->
+<Root type="Pack" gopackage="p_login" >
+
+<MsgType cmdName="MSG_TYPE_LOGIN" cmdValue="0x01" comment="登录模块"/>
+<!-- 登录第一次握手 -->
+<Pack className="PlayerLoginReq" cmdName="CMD_C_LOGIN_REQ" cmdValue="0x0101" comment="登录请求">
+	<Field name="UserName" type="string" value="" comment="账户"/>	
+	<Field name="UserPwd" type="uint8" value="" comment="密码"/>
+	<Field name="UserID" type="uint64" value="0" comment="用户ID"/>
+	
+	
+</Pack>
+<Pack className="PlayerLoginResp" cmdName="CMD_C_LOGIN_RESP" cmdValue="0x0102" comment="登录请求响应">
+	<Field name="ErrCode" type="uint16" value="错误码" />	
+</Pack>
+
+</Root>

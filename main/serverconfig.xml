@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+    <Server Ip="0.0.0.0" Port="8888" />
+	<Database Ip="192.168.16.58" Port="3306" Db="test" User="root" Pwd="" />
+</Config>
