@@ -25,9 +25,13 @@ func (this *LoginHandler) HandleMsg(cmdid uint16, pack *packet.Packet, conn neti
 	case p_login.CMD_C_LOGIN_READY_REQ:
 		this.loginReadyReq(pack, conn)
 	case p_login.CMD_C_ROLE_STATUS_REQ:
+		this.roleStatusReq(pack, conn)
 	case p_login.CMD_C_CRETE_ROLE_REQ:
+		this.createRoleReq(pack, conn)
 	case p_login.CMD_C_ROLE_LIST_REQ:
+		this.roleListReq(pack, conn)
 	case p_login.CMD_C_SET_PAY_ROLE_REQ:
+		this.setPayRoleReq(pack, conn)
 	default:
 		this.UnHandledMsg(cmdid, conn)
 	}
@@ -42,6 +46,18 @@ func (this *LoginHandler) loginReadyReq(pack *packet.Packet, conn netio.ConnInf)
 }
 
 func (this *LoginHandler) roleStatusReq(pack *packet.Packet, conn netio.ConnInf) {
+
+}
+
+func (this *LoginHandler) createRoleReq(pack *packet.Packet, conn netio.ConnInf) {
+
+}
+
+func (this *LoginHandler) roleListReq(pack *packet.Packet, conn netio.ConnInf) {
+
+}
+
+func (this *LoginHandler) setPayRoleReq(pack *packet.Packet, conn netio.ConnInf) {
 
 }
 func init() {
