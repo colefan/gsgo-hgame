@@ -8,11 +8,65 @@
 	<Field name="UserName" type="string" value="" comment="账户"/>	
 	<Field name="UserPwd" type="uint8" value="" comment="密码"/>
 	<Field name="UserID" type="uint64" value="0" comment="用户ID"/>
-	
-	
 </Pack>
 <Pack className="PlayerLoginResp" cmdName="CMD_C_LOGIN_RESP" cmdValue="0x0102" comment="登录请求响应">
 	<Field name="ErrCode" type="uint16" value="错误码" />	
 </Pack>
+<!-- 二次握手，登录确认-->
+<Pack className="PlayerLoginReadyReq" cmdName="CMD_C_LOGIN_READY_REQ" cmdValue="0x0103" comment="二次登录请求">
+	<Field name="ValidCode" type="string" value="" comment="预留校验码"/>	
+</Pack>
+
+<Pack className="PlayerLoginReadyResp" cmdName="CMD_C_LOGIN_READY_RESP" cmdValue="0x0104" comment="二次登录响应">
+	<Field name="ErrCode" type="uint16" value="" comment="错误码"/>	
+</Pack>
+<!--角色状态查询 -->
+<Pack className="RoleStatusReq" cmdName="CMD_C_ROLE_STATUS_REQ" cmdValue="0x0105" comment="角色状态查询">
+</Pack>
+
+<Pack className="RoleStatusResp" cmdName="CMD_C_ROLE_STATUS_RESP" cmdValue="0x0106" comment="角色状态响应">
+	<Field name="RoleStatus" type="uint16" value="" comment="0:代表没有角色；1：代表有角色；2代表有多个角色"/>	
+</Pack>
+<!-- 创角-->
+<Pack className="CreateRoleReq" cmdName="CMD_C_CRETE_ROLE_REQ" cmdValue="0x0107" comment="创角请求">
+	<Field name="RoleName" type="string" value="" comment="角色名字"/>
+	<Field name="RoleJob" type="uint8" value="" comment="角色职业"/>
+</Pack>
+
+<Pack className="CreateRoleResp" cmdName="CMD_C_CRETE_ROLE_RESP" cmdValue="0x0108" comment="创角响应">
+	<Field name="ErrCode" type="uint16" value="" comment="错误码"/>	
+</Pack>
+<!-- 合服多角色选择 -->
+
+<Entity className="LoginRoleEntity" comment="登录角色实体">
+	<Field name="UserID" type="uint64" value="" comment="账号ID"/>
+	<Field name="RoleID" type="uint64" value="" comment="角色ID"/>	
+	<Field name="OldServerId" type="string" value="" comment="原服ID"/>
+	<Field name="RoleName" type="string" value="" comment="角色名称"/>	
+	<Field name="Level" type="uint16" value="" comment="等级"/>	
+	<Field name="RoleJob" type="uint8" value="" comment="职业"/>	
+	<Field name="RoleIcon" type="uint32" value="" comment="头像"/>	
+	<Field name="IsPayRole" type="uint8" value="" comment="是否充值角色（0：否；1：是）"/>	
+	<Field name="LastLoginTime" type="uint32" value="" comment="最后登录时间"/>	
+</Entity>
+
+<Pack className="RoleListReq" cmdName="CMD_C_ROLE_LIST_REQ" cmdValue="0x0109" comment="角色列表请求">
+	<Field name="UserName" type="string" value="" comment="账号"/>
+</Pack>
+
+<Pack className="RoleListResp" cmdName="CMD_C_ROLE_LIST_RESP" cmdValue="0x0120" comment="角色列表响应">
+	<Field name="RoleList" type="entityarray" value="LoginRoleEntity" comment="角色列表"/>	
+</Pack>
+
+<Pack className="SetPayRoleReq" cmdName="CMD_C_SET_PAY_ROLE_REQ" cmdValue="0x0121" comment="设置充值账户">
+	<Field name="UserID" type="uint64" value="" comment="账号ID"/>
+	<Field name="RoleID" type="uint64" value="" comment="角色ID"/>
+	<Field name="RoleName" type="string" value="" comment="角色名"/>
+</Pack>
+
+<Pack className="SetPayRoleResp" cmdName="CMD_C_SET_PAY_ROLE_RESP" cmdValue="0x0122" comment="设置充值账户">
+	<Field name="ErrCode" type="uint16" value="" comment="错误码"/>	
+</Pack>
+
 
 </Root>

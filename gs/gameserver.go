@@ -31,6 +31,16 @@ func (this *GameServer) SessionClose(conn netio.ConnInf) {
 }
 
 func (this *GameServer) HandleMsg(cmdId uint16, pack *packet.Packet, conn netio.ConnInf) {
+	msgType := cmdId >> 8
+	h := this.handlers[msgType]
+	if h == nil {
+		Log.Warn("msg has no handler ,cmdid = ", cmdId, ", msgtype = ", msgType)
+
+		//TODO 是否需要断掉
+		conn.Close()
+	} else {
+		h.HandleMsg(cmdId, pack, conn)
+	}
 
 }
 

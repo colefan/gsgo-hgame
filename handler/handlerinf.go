@@ -1,6 +1,7 @@
 package handler
 
 import (
+	. "github.com/colefan/gsgo-hgame/init"
 	"github.com/colefan/gsgo/netio"
 	"github.com/colefan/gsgo/netio/packet"
 )
@@ -21,4 +22,8 @@ func (h *BaseHandler) SetModuleId(id uint16) {
 
 func (h *BaseHandler) GetModuleId() uint16 {
 	return h.ModuleID
+}
+
+func (h *BaseHandler) UnHandledMsg(cmdid uint16, conn netio.ConnInf) {
+	Log.Warn("unknow msg in this module, msgtype :", h.GetModuleId(), ", cmdid : ", cmdid, ", userid : ", conn.GetUID())
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 登录指令：0x0101-0x01FF-->
+<Root type="Pack" gopackage="p_init" >
+
+<MsgType cmdName="MSG_TYPE_INIT" cmdValue="0x02" comment="初始化模块"/>
+<!-- 时间同步信息 -->
+<Pack className="InitTimeStampNt" cmdName="CMD_INIT_TIMESTAMP" cmdValue="0x0201" comment="服务器时间搓">
+	<Field name="TimeStamp" type="uint32" value="" comment="服务器同步时间搓"/>	
+	<Field name="SyncCode" type="string" value="" comment="扩展的同步码"/>
+</Pack>
+
+
+
+
+</Root>
