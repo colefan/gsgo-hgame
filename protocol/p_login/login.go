@@ -27,7 +27,7 @@ const (
 type PlayerLoginReq struct {
 	*packet.Packet
 	UserName	string //账户
-	UserPwd	uint8 //密码
+	UserPwd	string //密码
 	UserID	uint64 //用户ID
 }
 

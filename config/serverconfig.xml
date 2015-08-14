@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Config>
-    <Server Ip="0.0.0.0" Port="3003" />
+    <Server Ip="0.0.0.0" Port="3003" AccessPtMode="0" AccessPtCode="qq" />
 	<Database Ip="0.0.0.0" Port="3306" Db="test" User="1234" Pwd="111" />
 </Config>

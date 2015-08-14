@@ -2,7 +2,9 @@
 package m_login
 
 import (
+	"github.com/colefan/gsgo-hgame/config"
 	"github.com/colefan/gsgo-hgame/handler"
+	. "github.com/colefan/gsgo-hgame/init"
 	"github.com/colefan/gsgo-hgame/protocol/p_login"
 	"github.com/colefan/gsgo/netio"
 	"github.com/colefan/gsgo/netio/packet"
@@ -39,6 +41,36 @@ func (this *LoginHandler) HandleMsg(cmdid uint16, pack *packet.Packet, conn neti
 
 func (this *LoginHandler) loginReq(pack *packet.Packet, conn netio.ConnInf) {
 	//TODO
+	if conn.GetBindObj() != nil {
+		//登录后在发登录请求，这是不对的。应该剔除
+		Log.Error("第一次消息请求时，应该没有已经绑定的对象，说明用户已经有绑定的对象了，是个错误的请求")
+		return
+	}
+	if pack.DecodePacket() == false {
+
+	}
+
+	var loginReq p_login.PlayerLoginReq
+	loginReq.Packet = pack
+	if false == loginReq.DecodePacket() {
+		Log.Error("解析包错误，应该断开连接")
+		conn.Close()
+		return
+	}
+
+	var uid uint64
+	var account string
+	var superpwd string
+	uid = loginReq.UserID
+	account = loginReq.UserName
+	superpwd = loginReq.UserPwd
+
+	if config.GetServerConfig().GetXmlConf().Server.AccessPtMode == 1 {
+		//平台接入模式，要查看平台登录信息
+	} else {
+		//非平台接入模式，只要查看自己的登录信息即可
+	}
+
 }
 
 func (this *LoginHandler) loginReadyReq(pack *packet.Packet, conn netio.ConnInf) {

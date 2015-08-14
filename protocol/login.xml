@@ -6,7 +6,7 @@
 <!-- 登录第一次握手 -->
 <Pack className="PlayerLoginReq" cmdName="CMD_C_LOGIN_REQ" cmdValue="0x0101" comment="登录请求">
 	<Field name="UserName" type="string" value="" comment="账户"/>	
-	<Field name="UserPwd" type="uint8" value="" comment="密码"/>
+	<Field name="UserPwd" type="string" value="" comment="密码"/>
 	<Field name="UserID" type="uint64" value="0" comment="用户ID"/>
 </Pack>
 <Pack className="PlayerLoginResp" cmdName="CMD_C_LOGIN_RESP" cmdValue="0x0102" comment="登录请求响应">

@@ -23,6 +23,7 @@ func GetGameServerInst() *GameServer {
 }
 
 func (this *GameServer) SessionOpen(conn netio.ConnInf) {
+	//打开一个物理链接，为这个物理链接分配一些对象吧
 
 }
 

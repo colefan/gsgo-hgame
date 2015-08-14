@@ -16,8 +16,10 @@ type XmlConfig struct {
 }
 
 type XmlServer struct {
-	Ip   string `xml:"Ip,attr"`
-	Port uint16 `xml:"Port,attr"`
+	Ip           string `xml:"Ip,attr"`
+	Port         uint16 `xml:"Port,attr"`
+	AccessPtMode int    `xml:"AccessPtMode,attr"`
+	AccessPtCode string `xml:"AccessPtCode,attr"`
 }
 
 type XmlDatabase struct {
