@@ -58,12 +58,12 @@ func (this *LoginHandler) loginReq(pack *packet.Packet, conn netio.ConnInf) {
 		return
 	}
 
-	var uid uint64
-	var account string
-	var superpwd string
-	uid = loginReq.UserID
-	account = loginReq.UserName
-	superpwd = loginReq.UserPwd
+	//	var uid uint64
+	//	var account string
+	//	var superpwd string
+	//	uid := loginReq.UserID
+	//	account := loginReq.UserName
+	//	superpwd := loginReq.UserPwd
 
 	if config.GetServerConfig().GetXmlConf().Server.AccessPtMode == 1 {
 		//平台接入模式，要查看平台登录信息
